@@ -11,3 +11,96 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
+
+# Personal PATH
+export PATH="${HOME}/meta/bin:${PATH}"
+
+# MacVim
+alias vim='mvim -v'
+
+export EDITOR='mvim -v'
+
+# My Git aliases
+alias ga='git add'
+alias gb='git branch'
+alias gd='git diff'
+alias gco='git checkout'
+alias gcp='git cherry-pick'
+alias gcm='git commit'
+alias gf='git fetch'
+alias gl='git log --graph --oneline --decorate'
+alias gm='git merge'
+alias gpl='git pull'
+alias gps='git push'
+alias grb='git rebase'
+alias gstat='git status -sb'
+alias gstash='git stash'
+
+# Tmux aliases
+alias tmn='tmux new -s'
+alias tml='tmux ls'
+alias tma='tmux attach -t'
+
+# GNU Awk = "awk" with asort, asorti, etc. features from GAWK manual 
+alias awk='gawk'
+
+# gb.io
+alias gob="${GOPATH}/bin/gb"
+
+# Rustup nightly compile / test
+alias cnightly='rustup run nightly cargo'
+
+# Go stuff
+export GOPATH="${HOME}/meta/dev/go"
+export PATH="${GOPATH}/bin:${PATH}"
+
+# Rust stuff
+export RUST_SRC_PATH="${HOME}/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src"
+export PATH="${HOME}/.cargo/bin:${PATH}"
+export PATH="/usr/local/sbin:${PATH}"
+
+# HDFS envars
+export HADOOP_NAMENODE=rndhadoop003.rnd.fwmrm.net:8020
+export HADOOP_USER_NAME=data
+
+# Direnv
+export DIRENV_LOG_FORMAT=
+eval "$(direnv hook zsh)"
+
+# NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # Load NVM
+export PATH="$PATH:$HOME/.pub-cache/bin"
+export DART_SDK=/usr/local/Cellar/dart/1.21.0
+export HOMEBREW_GITHUB_API_TOKEN="f90eae87e3e407c3599aff91902e8900ee2cb24b"
+
+## Julia
+# Escher server
+export PATH=$PATH:$HOME/.julia/v0.5/Escher/bin
+
+## HDFS Golang client
+alias hdfs="${GOPATH}/bin/hdfs"
+
+# GPG
+if [ -f "${HOME}/.gpg-agent-info" ]; then
+    . "${HOME}/.gpg-agent-info"
+    export GPG_AGENT_INFO
+    export SSH_AUTH_SOCK
+fi
+GPG_TTY=$(tty)
+export GPG_TTY
+alias awstoken='.AWS_MFA_TOKEN.py && source ~/.AWS_CREDENTIAL_EXPORT'
+alias awstokencache='source ~/.AWS_CREDENTIAL_EXPORT && echo Using cached AWS Token'
+export MFA_ARN=arn:aws:iam::060666275428:mfa/bsolomon
+
+# ssh_result="$(ssh-add -l 2>&1)" 
+# if [[ "$ssh_result" =~ "No such file" ]] ; then
+#   echo "starting agent"
+#   eval "$(ssh-agent)"
+#   ssh-add
+# elif [[ "$ssh_result" =~ "no identities" ]] ; then
+#   ssh-add 
+# fi
+# 
+
+export PATH="${PATH}:${HOME}/.local/bin"
