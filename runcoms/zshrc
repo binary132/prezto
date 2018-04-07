@@ -11,3 +11,46 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
+
+# Editor
+export EDITOR=vim
+export GIT_EDITOR=vim
+
+# Direnv
+export DIRENV_LOG_FORMAT=
+eval "$(direnv hook zsh)"
+
+# My executables
+export PATH="${PATH}:${HOME}/meta/bin"
+
+# Go setup
+export GOPATH="${HOME}/meta/dev/go"
+export PATH="${GOPATH}/bin:${PATH}"
+
+# Rust / Cargo
+export PATH="${HOME}/.cargo/bin:${PATH}"
+export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
+
+alias ga='git add'
+alias gb='git branch'
+alias gd='git diff'
+alias gco='git checkout'
+alias gcp='git cherry-pick'
+alias gcm='git commit'
+alias gf='git fetch'
+alias gl='git log --graph --oneline --decorate'
+alias gm='git merge'
+alias gpl='git pull'
+alias gps='git push'
+alias grb='git rebase'
+alias gstat='git status -sb'
+alias gstash='git stash'
+
+alias tmn='tmux new -s'
+alias tml='tmux ls'
+alias tma='tmux attach -t'
+
+# Android / Flutter
+
+# Dart / Flutter
+export PATH="${PATH}:${HOME}/.pub-cache/bin"
