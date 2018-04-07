@@ -10,4 +10,71 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-# Customize to your needs...
+export EDITOR='mvim -v'
+export GIT_EDITOR='mvim -v'
+
+# My Git aliases
+alias ga='git add'
+alias gb='git branch'
+alias gd='git diff'
+alias gco='git checkout'
+alias gcp='git cherry-pick'
+alias gcm='git commit'
+alias gf='git fetch'
+alias gl='git log --graph --oneline --decorate'
+alias gm='git merge'
+alias gpl='git pull'
+alias gps='git push'
+alias grb='git rebase'
+alias gstat='git status -sb'
+alias gstash='git stash'
+
+# Tmux aliases
+alias tmn='tmux new -s'
+alias tml='tmux ls'
+alias tma='tmux attach -t'
+
+# GOPATH
+export GOPATH=${HOME}/meta/dev/go
+export PATH=${PATH}:${GOPATH}/bin
+
+# Personal PATH
+export PATH="${HOME}/meta/bin:${PATH}"
+
+# MacVim
+alias vim='mvim -v'
+
+# Rustup nightly compile / test
+alias cnightly='rustup run nightly cargo'
+
+# Rust stuff
+export PATH="${HOME}/.cargo/bin:${PATH}"
+export PATH="/usr/local/sbin:${PATH}"
+export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
+
+# Direnv
+export DIRENV_LOG_FORMAT=
+eval "$(direnv hook zsh)"
+
+# GPG
+if [ -f "${HOME}/.gpg-agent-info" ]; then
+    . "${HOME}/.gpg-agent-info"
+    export GPG_AGENT_INFO
+    export SSH_AUTH_SOCK
+fi
+GPG_TTY=$(tty)
+export GPG_TTY
+export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+export PATH="${PATH}:${HOME}/.local/bin"
+
+export LUNA_HOME=/Users/bodie/meta/build/luna/luna/stdlib
+
+[[ "$(ssh-add -l)" =~ "no identities" ]] && ssh-add
+
+# Android
+export ANDROID_SDK_ROOT="/usr/local/share/android-sdk"
+export ANDROID_HOME="${ANDROID_SDK_ROOT}"
+export ANDROID_NDK_HOME="/usr/local/share/android-ndk"
+
+# Dart
+export PATH="${PATH}:${HOME}/.pub-cache/bin"
