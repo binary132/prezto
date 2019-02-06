@@ -12,9 +12,6 @@ fi
 
 # Customize to your needs...
 
-# Personal PATH
-export PATH="${HOME}/meta/bin:${PATH}"
-
 # MacVim
 alias vim='mvim -v'
 
@@ -36,6 +33,9 @@ alias grb='git rebase'
 alias gstat='git status -sb'
 alias gstash='git stash'
 
+# For AWS git-secrets
+alias gsc='git secrets'
+
 # Tmux aliases
 alias tmn='tmux new -s'
 alias tml='tmux ls'
@@ -53,6 +53,9 @@ alias cnightly='rustup run nightly cargo'
 # Go stuff
 export GOPATH="${HOME}/meta/dev/go"
 export PATH="${GOPATH}/bin:${PATH}"
+
+# Personal PATH
+export PATH="${HOME}/meta/bin:${PATH}"
 
 # Rust stuff
 export RUST_SRC_PATH="${HOME}/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src"
