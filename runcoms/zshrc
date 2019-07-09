@@ -44,6 +44,9 @@ alias tma='tmux attach -t'
 # GNU Awk = "awk" with asort, asorti, etc. features from GAWK manual 
 alias awk='gawk'
 
+# To prevent Spark tests from crashing all the time....
+alias sbt='SBT_OPTS="-Xms1024M -Xmx2048M -Xss2M -XX:MaxMetaspaceSize=2048M" sbt'
+
 # gb.io
 alias gob="${GOPATH}/bin/gb"
 
@@ -79,7 +82,7 @@ export HOMEBREW_GITHUB_API_TOKEN="f90eae87e3e407c3599aff91902e8900ee2cb24b"
 
 ## Julia
 # Escher server
-export PATH=$PATH:$HOME/.julia/v0.5/Escher/bin
+# TODO: Fixme!
 
 ## HDFS Golang client
 alias hdfs="${GOPATH}/bin/hdfs"
